@@ -32,12 +32,17 @@ ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(',')
 # Application definition
 
 INSTALLED_APPS = [
+    # Add django channels to installed apps
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Add simple app to installed apps
+    'app.simple_app',
+
 ]
 
 MIDDLEWARE = [
@@ -68,7 +73,10 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'hello_world.wsgi.application'
+# WSGI_APPLICATION = 'hello_world.wsgi.application'
+
+# Enable ASGI server for channels
+ASGI_APPLICATION = 'hello_world.asgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
